@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="commonHeader(title,cssPath,jsPath)">
+    <meta charset="UTF-8">
+    <title>数据展示平台</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link type="text/css" rel="stylesheet" th:href="@{/layui/css/layui.css}">
+    <link type="text/css" rel="stylesheet" th:href="@{/plugins_font-awesome/css/font-awesome.css}">
+    <link type="text/css" rel="stylesheet" th:href="@{/common/css/global.css}">
+    <link type="text/css" rel="stylesheet" th:href="${cssPath }">
+    <script th:src="@{/jquery/jquery.js}"></script>
+    <script th:src="@{/common/js/common.js}"></script>
+    <script th:src="@{/layui/layui.js}"></script>
+    <script th:src="@{/layui/config.js}"></script>
+    <script th:src="${jsPath }"></script>
+</head>
+<body>
+<div th:fragment="layout(fileName)">
+    <div class="layui-header header header-demo" id="layui-header-bg">
+        <div class="layui-main">
+            <div class="admin-login-box">
+                <a class="logo" style="left: 0;" href="">
+                    <img th:src="@{/images/logo.png}" alt=""><span style="font-size: 22px;color:#fff;">数据管理平台</span>
+                </a>
+
+            </div>
+            <ul class="layui-nav">
+                <li class="layui-nav-item">
+                    <a href="javascript:;" style="color:#fff;">你好今天是<span th:text="${year }"></span>年<span th:text="${month }"></span>月<span th:text="${day }"></span>日</a>
+                </li>
+                <li class="layui-nav-item" id="xiaoxi">
+                    <img th:src="@{/images/message.jpg}" alt="">
+                    <a href="#" target="_blank" style="color:#fff">消息</a>
+                </li>
+                <li class="layui-nav-item" id="help">
+                    <img th:src="@{/images/help.jpg}" alt="">
+                    <a href="#" target="_blank" style="color:#fff">帮助中心</a>
+                </li>
+                <!--<li class="layui-nav-item" id="back">-->
+                    <!--<img th:src="@{/images/back.jpg}" alt="">-->
+                    <!--<a href="" style="color:#fff">退出系统</a>-->
+                <!--</li>-->
+
+                <span class="layui-nav-bar"></span>
+            </ul>
+        </div>
+    </div>
+
+        <ul class="layui-nav layui-nav-tree layui-nav-side" lay-filter="test">
+            <!-- 侧边导航: <ul class="layui-nav layui-nav-tree layui-nav-side"> -->
+            <!--<li class="layui-nav-item"><a href="javascript:;" onclick="changeContentPage('/page?pageName=MoonLake')">宁波天一阁月湖景区</a></li>-->
+            <!--<li class="layui-nav-item"><a href="javascript:;" onclick="changeContentPage('/page?pageName=MicroMarket')">宁波校园微招聘</a></li>-->
+            <!--<li class="layui-nav-item"><a href="javascript:;" onclick="changeContentPage('/page?pageName=index')">宁波猎头</a></li>-->
+            <li class="layui-nav-item"><a href="javascript:;" onclick="changeContentPage('/page?pageName=dataDisplay&title=宁波天一阁月湖景区')">宁波天一阁月湖景区</a></li>
+            <li class="layui-nav-item"><a href="javascript:;" onclick="changeContentPage('/page?pageName=dataDisplay&title=宁波校园微招聘')">宁波校园微招聘</a></li>
+            <li class="layui-nav-item"><a href="javascript:;" onclick="changeContentPage('/page?pageName=dataDisplay&title=宁波猎头')">宁波猎头</a></li>
+        </ul>
+
+        <div class="layui-body" style="bottom: 0;border-left: solid 2px #1AA094;height: 800px;margin-top: 75px;" id="admin-body">
+            <div class="layui-tab admin-nav-card layui-tab-brief" lay-filter="admin-tab">
+                <div class="layui-tab-content" style="min-height: 150px; padding: 5px 0 0 0;">
+                    <div class="layui-tab-item layui-show">
+                        <iframe
+                                th:src="${fileName }"
+                                id="contentPage"
+                                name="contentPage"
+                                frameborder="0"
+                                style="padding: 0px;
+                                width: 100%;"
+                                scrolling="no"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

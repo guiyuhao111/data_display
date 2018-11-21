@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template::commonHeader('首页','../page/css/dataDisplay.css','../page/js/dataDisplay.js')">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<script  type="text/html" id="inlineTool" >
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+<!-- 公共的头部工具条 -->
+<script type="text/html" id="headToolBar">
+    <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-sm" lay-event="add">添加</button>
+        <button class="layui-btn layui-btn-sm" lay-event="delete">删除</button>
+    </div>
+</script>
+<body>
+<span hidden th:text="${title }" id="websiteName"></span>
+<table id="dataTable" lay-filter="dataList"></table>
+<div class="layui-form" lay-filter="dataForm" id="dataInput" style="display: none;margin-top: 5%;margin-right: 5%;">
+    <div class="layui-form-item">
+        <label class="layui-form-label">标题:</label>
+        <div class="layui-input-block">
+            <input type="text" name="title" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">链接:</label>
+        <div class="layui-input-block">
+            <input type="text" name="link" required  lay-verify="required" placeholder="请输入链接" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">类型:</label>
+        <div class="layui-input-block">
+            <input type="radio" name="type" value="转载" title="转载">
+            <input type="radio" name="type" value="原创" title="原创">
+            <input type="radio" name="type" value="排版" title="排版" checked>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">发布人:</label>
+        <div class="layui-input-block">
+            <input type="text" name="author" required  lay-verify="required" placeholder="请输入姓名" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">发布时间:</label>
+        <div class="layui-input-block">
+            <input type="text" id="pubTime" name="pubTime" required  lay-verify="required" placeholder="请选择时间" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item layui-form-text">
+        <label class="layui-form-label">备注:</label>
+        <div class="layui-input-block">
+            <textarea name="remark" placeholder="请输入内容" class="layui-textarea"></textarea>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="commit">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

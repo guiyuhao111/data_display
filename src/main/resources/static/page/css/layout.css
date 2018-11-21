@@ -1,0 +1,13 @@
+.layui-nav-item a {
+    padding-left: 20px;
+}
+.layui-nav-item a i{
+    font-size: 1.2rem;
+}
+.layui-nav-item a span{
+    margin-left: 10px;
+}
+.layui-layout-admin .layui-body {
+    top: 70px !important;
+    bottom: 44px;
+}
